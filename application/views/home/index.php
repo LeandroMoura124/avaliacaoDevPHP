@@ -6,12 +6,64 @@
     <link rel="stylesheet" href=" <?= base_url(uri:"css/bootstrap.css") ?> ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de usuários</title>
+
+    <!-- Estilizando -->
+    <style>
+      body{
+        height: 500px;
+        background-color:#2b2929d3;
+      }
+      .container {
+        margin-top: 2%;
+        padding-top: 0%;
+        width: 40%;
+        height: 650px;
+        background-color: #1a19196b;
+      }
+      #btn{
+        margin-top: 6px;
+        color: #fff;
+        background-color: #2b29299f;
+      }
+      #btn:hover{
+        background-color: #e02da5d3;
+      }
+      #nmEmail{
+        color: #fff;
+      }
+      #senha{
+        color: #e02da5d3 ;
+      }
+      #email{
+        color: #e02da5d3 ;
+      }
+      #nome{
+        color: #e02da5d3 ;
+      }
+      .container h1{
+        color: #e02da5d3 
+      }
+      .containerButtom .banner{
+        color: #e02da5d3;
+        font-size: 15px;
+      
+      }
+      label{
+        color: #fff;
+      }
+      form{
+        padding-top: 10px;
+      }
+    </style>
+   
 </head>
 <body>
 
+
+  
   <div class="container">
 
-    <!-- se a sessão de login existir, apresentará a msg: -->
+        <!-- se a sessão de login existir, apresentará a msg: -->
     <?php if($this->session->flashdata("success")) : ?>
       <p class="alert alert-success"><?= $this->session->flashdata("success")?></p>
     <?php endif ?>
@@ -24,9 +76,9 @@
 
     <!-- Se o usuário estiver logado no sistema:  -->
     <?php if($this->session->userdata("usuario logado")) : ?>
-      <div class="container">
+      <div class="containerButtom">
         <div class="banner">
-          <h1>Bem-vindo ao sistemas avaliativo dev PHP!</h1>
+          <h1>Bem-vindo ao sistema avaliativo dev PHP!</h1>
         </div>
       <?php echo form_open("login/logout");
         echo form_button(array(
@@ -71,6 +123,7 @@
               echo form_button(array(
                 "class" => "btn btn-primary",
                 "type" => "submit",
+                "id" => "btn",
                 "content" => "Login"
 
               ));
@@ -109,15 +162,17 @@
 
               echo form_button(array(
                 "class" => "btn btn-primary",
+                "id" => "btn",
                 "type" => "submit",
                 "content" => "Cadastrar"
-
               ));
 
             echo form_close();
         ?>
   </div>
   <?php endif ?>
+
+  <?php include 'rodape.html' ?>
 
 </body>
 </html>
